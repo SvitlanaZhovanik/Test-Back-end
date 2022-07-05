@@ -21,9 +21,10 @@ const orderSchema = new Schema(
       type: String,
       required: [true, 'Address user is required'],
     },
+    totalPrice: { type: Number, required: [true, 'Total price is required'] },
     products: [
       {
-        _id: {
+        id: {
           type: Schema.Types.ObjectId,
           ref: 'Product',
         },

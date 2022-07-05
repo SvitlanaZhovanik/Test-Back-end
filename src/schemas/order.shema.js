@@ -1,8 +1,7 @@
 const joi = require('joi');
-const { checkObjectId } = require('../helpers/joi');
 
 const product = joi.object({
-  _id: joi.string().custom(checkObjectId).required(),
+  id: joi.string().required(),
   name: joi.string().min(1).max(50).required(),
   description: joi.string().required(),
   price: joi.string().required(),
@@ -15,6 +14,7 @@ const order = joi.object({
   email: joi.string().required(),
   phone: joi.string().required(),
   address: joi.string().required(),
+  totalPrice: joi.number().required(),
   products: joi.array().items(product).min(1),
 });
 
