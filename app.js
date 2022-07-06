@@ -9,7 +9,7 @@ const app = express();
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(morgan(formatsLogger));
 
 app.use('/api/shops', shopsRouter);
